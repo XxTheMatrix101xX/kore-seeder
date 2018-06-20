@@ -402,9 +402,9 @@ static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
   if (!fTestNet){
-    db.Add(CService("dik4fxcvpa2tkm6z.onion", 10743), true);
-    db.Add(CService("jdj2yejilquxfchq.onion", 10743), true);
-    db.Add(CService("hvjjqjjajii2ycix.onion", 10743), true);
+    db.Add(CService("dik4fxcvpa2tkm6z.onion", GetDefaultPort()), true);
+    db.Add(CService("jdj2yejilquxfchq.onion", GetDefaultPort()), true);
+    db.Add(CService("hvjjqjjajii2ycix.onion", GetDefaultPort()), true);
   }
   do {
     for (int i=0; seeds[i] != ""; i++) {
