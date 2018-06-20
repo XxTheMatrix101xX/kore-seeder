@@ -51,7 +51,7 @@ public:
                               "-i <ip:port>    IPV4 SOCKS5 proxy IP/Port\n"
                               "-k <ip:port>    IPV6 SOCKS5 proxy IP/Port\n"
                               "-w f1,f2,...    Allow these flag combinations as filters\n"
-                              "-l              Activate log stuff (prints)\n"
+                              "-l, --log       Activate log stuff (prints)\n"
                               "--testnet       Use testnet\n"
                               "--wipeban       Wipe list of banned nodes\n"
                               "--wipeignore    Wipe list of ignored nodes\n"
@@ -79,7 +79,7 @@ public:
         {0, 0, 0, 0}
       };
       int option_index = 0;
-      int c = getopt_long(argc, argv, "h:n:m:t:p:d:o:i:k:w:", long_options, &option_index);
+      int c = getopt_long(argc, argv, "h:n:m:t:p:d:o:i:k:w:l:", long_options, &option_index);
       if (c == -1) break;
       switch (c) {
         case 'h': {
