@@ -15,6 +15,8 @@
 using namespace std;
 
 bool fTestNet = false;
+bool gLog = false;
+
 
 class CDnsSeedOpts {
 public:
@@ -49,6 +51,7 @@ public:
                               "-i <ip:port>    IPV4 SOCKS5 proxy IP/Port\n"
                               "-k <ip:port>    IPV6 SOCKS5 proxy IP/Port\n"
                               "-w f1,f2,...    Allow these flag combinations as filters\n"
+                              "-l              Activate log stuff (prints)\n"
                               "--testnet       Use testnet\n"
                               "--wipeban       Wipe list of banned nodes\n"
                               "--wipeignore    Wipe list of ignored nodes\n"
@@ -68,6 +71,7 @@ public:
         {"proxyipv4", required_argument, 0, 'i'},
         {"proxyipv6", required_argument, 0, 'k'},
         {"filter", required_argument, 0, 'w'},
+        {"log", no_argument, 0, 'l'},
         {"testnet", no_argument, &fUseTestNet, 1},
         {"wipeban", no_argument, &fWipeBan, 1},
         {"wipeignore", no_argument, &fWipeBan, 1},
@@ -137,6 +141,11 @@ public:
             }
             filter_whitelist.insert(l);
           }
+          break;
+        }
+
+        case 'l': {
+          gLog = true;
           break;
         }
 
