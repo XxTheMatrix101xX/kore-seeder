@@ -10,7 +10,7 @@ fi
 
 AGAIN=true
 
-printf "Welcome to the ${RED}Kore Seeder${NC}... uh... oh, yeah, installer tool.\n"
+printf "\nWelcome to the ${RED}Kore Seeder${NC}... uh... oh, yeah, installer tool.\n"
 sleep 1
 printf "Wow, very cool, such awesome, much easy, many nice\n\n"
 prompts() {
