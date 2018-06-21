@@ -58,16 +58,19 @@ sudo apt-get install git -y &&
 sudo apt-get install build-essential libboost-all-dev libssl-dev -y &&
 sudo apt-get install tor deb.torproject.org-keyring -y &&
 
-printf "${RED}\n\nInstalled. I'll clone the seeder from github now.${NC}"
-git clone https://github.com/Plorark/kore-seeder.git
+localrepo=$(basename `git rev-parse --show-toplevel`)
+if ! [ "$localrepo" = "kore-seeder" ] ; then
+   printf "${RED}\n\nInstalled. I'll clone the seeder from github now.${NC}\n"
+   git clone https://github.com/Plorark/kore-seeder.git
+fi
 
-printf "${RED}\n\nDone. Let's compile everything.${NC}"
+printf "${RED}\n\nDone. Let's compile everything.${NC}\n"
 cd kore-seeder
 echo "export PATH=$PWD:\$PATH" >> ~/.bashrc
 source ~/.bashrc
 make
 
-printf "${RED}\n\nAnd finally, let's run it!!!!!!!!${NC}"
+printf "${RED}\n\nAnd finally, let's run it!!!!!!!!${NC}\n"
 sudo ./dnsseed -h ${dnsseeduri} -n ${nsuri} -m avoidwarningemail.kore.life -o 127.0.0.1:9050 -i 127.0.0.1:9050 -k 127.0.0.1:9050 &
 printf "\n\nOkay. Done. Bye.\n"
 exit
