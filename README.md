@@ -31,7 +31,7 @@ We prepared a cool script for you to avoid too much work (the easy way), but the
 Run this:
 
 ```sh
-wget "https://raw.githubusercontent.com/Plorark/kore-seeder/master/auto-install.sh" && chmod 777 ./auto-install.sh && sudo ./auto-install.sh
+curl -o- https://raw.githubusercontent.com/Plorark/kore-seeder/master/auto-install.sh | bash
 ```
 
 **IMPORTANT**
